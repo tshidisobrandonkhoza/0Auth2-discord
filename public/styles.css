@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    ;
+}
+
+nav {
+
+    padding: 6px 0;
+    width: 100%;
+    background-color: orange;
+}
+
+nav li {
+
+    border: #333 dotted 1px;
+
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px 0 0;
+
+}
+
+nav a {
+    border: #333 dotted 1px;
+
+    color: #fff;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+main,
+header {
+
+    border: #333 dotted 1px;
+
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 10px;
+    color: #333;
+}

@@ -4,7 +4,12 @@ const passport = require('passport');
 const router = Router();
 
 router.get('/login', (req, res) => {
-    res.render('login');
+
+    const user = req.user || null;
+    res.render('login', {
+        title: 'Login',
+        user
+    });
 })
 
 
@@ -13,12 +18,21 @@ router.get('/google', passport.authenticate('google', {
     scope: ['profile']
 }));
 //redirect with the code from google
-router.get('/google/redirect', passport.authenticate('google'),(req, res) => {
-    res.send('you have been redirected');
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    res.redirect('/profile');
+    // res.send(req.user);
 });
 
-router.get('/logout', (req, res) => {
-    res.send('loggin out')
+// const logout = () => {
+//     // destry session
+// }
+router.get('/logout', (req, res, next) => {
+    // res.send(req.user)
+    req.logout((err) => {
+        if (err) { return next(err) };
+        res.redirect('/');
+    });
+
 });
 
 

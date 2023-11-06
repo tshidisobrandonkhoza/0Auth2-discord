@@ -9,6 +9,9 @@ const userSchema = new Schema({
         type: String,
 
     },
+    thumbnail:{
+        type: String
+    }
 }, {
     timestamps: true,
 })
